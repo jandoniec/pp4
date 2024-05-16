@@ -1,5 +1,7 @@
-package creditcard;
+package pl.jandoniec.creditcard;
 
+import creditcard.CreditBellowThresholdException;
+import creditcard.CreditCard;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import java.math.BigDecimal;

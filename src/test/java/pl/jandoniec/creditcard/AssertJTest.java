@@ -1,4 +1,4 @@
-package creditcard;
+package pl.jandoniec.creditcard;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

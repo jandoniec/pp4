@@ -1,5 +1,6 @@
-package creditcard;
+package pl.jandoniec.creditcard;
 
+import creditcard.CreditCard;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
