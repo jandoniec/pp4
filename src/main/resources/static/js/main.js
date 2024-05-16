@@ -1,27 +1,30 @@
-getProducts = () => {
+const getProducts = () => {
     return fetch("/api/products")
-        .then(response => response.json());
+        .then(r => r.json())
 }
 
-const createProductHtml = (productData) => {
+const createHtmlEl = (productData) => {
     const template = `
-        <div>
+        <div class="product">
             <h4>${productData.name}</h4>
-            <span>${productData.price}</span>
-            <img src="https://picsum.photos/536/354"/>
-            <button data-id="${productData.id}">Add to cart</button>
+            <img src="https://picsum.photos/id/237/200/300"/>
+            <div class="product__price">
+                <span>${productData.price}</span>
+                <button data-id="${productData.id}">Add to cart +</button>
+            </div>
         </div>
-    `;
-    const productEl = document.createElement('li');
-    productEl.innerHTML = template.trim();
-    return productEl;
+    `
+    const el = document.createElement("li");
+    el.innerHTML = template.trim();
+
+    return el;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const productsList = document.querySelector("#productsList");
+(() => {
+    const productList = document.querySelector("#productList");
+
     getProducts()
-        .then(productsAsJsonObj => productsAsJsonObj.map(createProductHtml))
-        .then(productsAsHtmlEl => {
-            productsAsHtmlEl.forEach(productEl => productsList.appendChild(productEl));
-        })
-});
+        .then(productsAsJson => productsAsJson.map(createHtmlEl))
+        .then(productsAsHtml => productsAsHtml.forEach(productEl => productList.appendChild(productEl)));
+
+})();

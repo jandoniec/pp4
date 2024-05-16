@@ -1,10 +1,7 @@
-#src/main/resources/application.yaml
-
 server:
-  port: 8888
+  port: 8889
 
 spring:
-
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
