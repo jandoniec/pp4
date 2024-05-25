@@ -15,6 +15,9 @@ public class SalesFacade {
         this.offerCalculator=offerCalculator;
     }
 
+    public SalesFacade() {
+        
+    }
 
 
     public ReservationDetails acceptOffer(String customerId) {
