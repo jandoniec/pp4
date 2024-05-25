@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.jandoniec.ecommerce.catalog.HasMapProductStorage;
 import pl.jandoniec.ecommerce.catalog.ProductCatalog;
-import pl.jandoniec.ecommerce.catalog.sales.SalesFacade;
+import pl.jandoniec.ecommerce.catalog.sales.ui.SalesFacade;
 
 @SpringBootApplication
 public class App {

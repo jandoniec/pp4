@@ -1,4 +1,4 @@
-package pl.jandoniec.ecommerce.catalog.sales;
+package pl.jandoniec.ecommerce.catalog.sales.offering;
 
 public class AcceptOfferRequest {
 

@@ -1,4 +1,4 @@
-package pl.jandoniec.ecommerce.catalog.playground;
+package pl.jandoniec.ecommerce.playground;
 
 
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package pl.jandoniec.ecommerce.catalog.sales;
+package pl.jandoniec.ecommerce.catalog.sales.order;
 
 import java.math.BigDecimal;
 
