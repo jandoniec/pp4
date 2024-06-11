@@ -1,6 +1,7 @@
 package pl.jandoniec.ecommerce.sales.reservation;
 import static org.assertj.core.api.Assertions.*;
 
+
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,29 +23,31 @@ public class OfferAcceptanceTest {
     }
 
     @Test
-    void itAllowsToAcceptOffer(){
-        SalesFacade sales=thereIsSales();
-        String customerId=thereIsCustomer("juangrande");
-        String productId=thereIsProduct("x", BigDecimal.valueOf(10));
+    void itAllowsToAcceptAnOffer() {
+        SalesFacade sales = thereIsSales();
+        String customerId  = thereIsCustomer("nastia");
+        String productId = thereIsProduct("X" , BigDecimal.valueOf(10));
+
         sales.addProduct(customerId,productId);
         sales.addProduct(customerId,productId);
+
         var acceptOfferRequest = new AcceptOfferRequest();
-        acceptOfferRequest
-                .setFirstName("jan")
-                .setLastName("kowalski")
-                .setEmail("je@example.com");
-        ReservationDetails reservationDetails=sales.acceptOffer(customerId,acceptOfferRequest);
+        acceptOfferRequest.setFirstName("jan").setLastName("kowalski")
+                .setEmail("j@example.com");
+
+        sales.acceptOffer(customerId,acceptOfferRequest);
+        ReservationDetails reservationDetails = sales.acceptOffer(customerId, acceptOfferRequest);
+
         assertThat(reservationDetails.getPaymentUrl()).isNotBlank();
         assertThat(reservationDetails.getReservationId()).isNotBlank();
-        assertPaymentHaBeenRegistered();
+
+        assertPaymentHasBeenRegistered();
         assertThereIsReservationWithId(reservationDetails.getReservationId());
         assertReservationIsPending(reservationDetails.getReservationId());
-        assertReservationIsDoneForCustomer(reservationDetails.getReservationId(),"jan","kowalski","je@example.com");
-        assertReservationTotalMatchOffer(reservationDetails.getReservationId(),BigDecimal.valueOf(20));
-
-
-
+        assertReservationIsDoneForCustomer(reservationDetails.getReservationId() , "john" , "doe" , "john.doe@example.com");
+        assertReservationTotalMatchOffer(reservationDetails.getReservationId(), BigDecimal.valueOf(20));
     }
+
     private void assertReservationTotalMatchOffer(String reservationId,BigDecimal expectedTotal){
         Reservation loaded=reservationRepository.load(reservationId)
                 .get();
@@ -70,7 +73,7 @@ public class OfferAcceptanceTest {
                 .get();
         assertThat(loaded.isPending()).isTrue();
     }
-    private void assertPaymentHaBeenRegistered(){
+    private void assertPaymentHasBeenRegistered(){
 
         assertThat(spyPaymentGateway.getRequestCount()).isEqualTo(1);
     }

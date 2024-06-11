@@ -1,6 +1,5 @@
 package pl.jandoniec.ecommerce.sales.reservation;
 
-
 import pl.jandoniec.ecommerce.catalog.sales.payment.PaymentDetails;
 import pl.jandoniec.ecommerce.catalog.sales.payment.PaymentGateway;
 import pl.jandoniec.ecommerce.catalog.sales.payment.RegisterPaymentRequest;

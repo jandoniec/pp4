@@ -29,25 +29,9 @@ public class SalesFacade {
     }
 
     public Offer getCurrentOffer(String customerId) {
-        Cart cart=cartStorage.getForCustomer(customerId)
-                .orElse(Cart.empty());
-        Offer offer=offerCalculator.calculate(cart.getItems());
-        return offer;
+        Cart cart=loadCartForCustomer(customerId);
+        return OfferCalculator.calculate(cart.getItems());
     }
-
-    public void addProduct(String customerId, String productId) {
-        Cart cart = getCartForCustomer(customerId);
-
-        cart.addProduct(productId);
-
-    }
-    private Cart getCartForCustomer(String customerId) {
-        return cartStorage.getForCustomer(customerId)
-                .orElse(Cart.empty());
-    }
-
-
-
 
     public ReservationDetails acceptOffer(String customerId, AcceptOfferRequest acceptOfferRequest) {
         String reservationId=UUID.randomUUID().toString();
@@ -57,5 +41,21 @@ public class SalesFacade {
         reservationRepository.add(reservation);
         return new ReservationDetails(reservationId,paymentDetails.getPaymentUrl());
     }
+    public void addProduct(String customerId, String productId) {
+        Cart cart = loadCartForCustomer(customerId);
+
+        cart.addProduct(productId);
+
+    }
+    private Cart loadCartForCustomer(String customerId) {
+        return cartStorage.findByCustomer(customerId)
+                .orElse(Cart.empty());
+    }
+
+
+
+
+
+
 
 }

@@ -1,5 +1,6 @@
 package pl.jandoniec.ecommerce.catalog.sales;
 
+
 import org.springframework.web.bind.annotation.*;
 import pl.jandoniec.ecommerce.catalog.sales.offering.Offer;
 import pl.jandoniec.ecommerce.catalog.sales.reservation.AcceptOfferRequest;
@@ -23,8 +24,8 @@ public class SalesController {
         var customerId = getCurrentCustomerId();
         return sales.acceptOffer(customerId,acceptOfferRequest);
     }
-    @PostMapping("/api/add-product/{productId}")
-    void addProduct(@PathVariable(name="productId") String productId){
+    @PostMapping("/api/add-to-cart/{productId}")
+    void addToCart(@PathVariable(name="productId") String productId){
         var customerId=getCurrentCustomerId();
         sales.addProduct(customerId,productId);
     }

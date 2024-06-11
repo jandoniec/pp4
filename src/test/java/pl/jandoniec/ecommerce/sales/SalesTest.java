@@ -1,19 +1,21 @@
 package pl.jandoniec.ecommerce.sales;
 import org.junit.jupiter.api.Test;
-import pl.jandoniec.ecommerce.catalog.sales.offering.Offer;
-import pl.jandoniec.ecommerce.catalog.sales.SalesFacade;
 import pl.jandoniec.ecommerce.catalog.sales.cart.CartStorage;
+import pl.jandoniec.ecommerce.catalog.sales.offering.Offer;
 import pl.jandoniec.ecommerce.catalog.sales.offering.OfferCalculator;
 import pl.jandoniec.ecommerce.catalog.sales.reservation.ReservationRepository;
+import pl.jandoniec.ecommerce.catalog.sales.SalesFacade;
+import pl.jandoniec.ecommerce.sales.reservation.SpyPaymentGateway;
 
 import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class SalesTest {
 
     @Test
     void itShowsCurrentOffer() {
-        String customerId = thereIsCustomer("Juan");
+        String customerId = thereIsCustomer("Kuba");
         SalesFacade sales = thereIsSales();
 
         Offer offer = sales.getCurrentOffer(customerId);
@@ -25,7 +27,7 @@ public class SalesTest {
     @Test
     void itAddsProductToCart() {
         String productId = thereIsExampleProduct("X", BigDecimal.valueOf(10));
-        String customerId = thereIsCustomer("Juan");
+        String customerId = thereIsCustomer("Kuba");
         SalesFacade sales = thereIsSales();
 
         sales.addProduct(customerId, productId);
@@ -58,11 +60,4 @@ public class SalesTest {
     private String thereIsCustomer(String name) {
         return name;
     }
-}
-
-
-
-
-
-
 }

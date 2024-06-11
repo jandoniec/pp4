@@ -2,6 +2,7 @@ package pl.jandoniec.ecommerce.catalog.sales.reservation;
 import java.math.BigDecimal;
 
 
+
 public class ReservationDetails {
     private final String reservationId;
     private final String paymentUrl;
@@ -18,7 +19,7 @@ public class ReservationDetails {
 
     }
 
-    public Object getReservationId() {
+    public String getReservationId() {
         return reservationId;
     }
 
