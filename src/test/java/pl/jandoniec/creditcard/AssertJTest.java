@@ -5,18 +5,19 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.*;
-
 public class AssertJTest {
-
-
     @Test
-    void testSomeListExpression(){
-        var names = Collections.singleton("Jakub");
+    void helloAssertJ(){
+        var hello="Hello world!";
+        assertThat(hello).containsOnlyDigits();
 
+    }
+    @Test
+    void testSomeExpression(){
+        var names= Collections.singleton("Beata");
         assertThat(names)
                 .isUnmodifiable()
                 .hasSize(3)
-                .containsAll(Arrays.asList("Jakub", "Michal"));
-
+                .containsAll(Arrays.asList("Beata","Robert"));
     }
 }

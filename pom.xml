@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.jandoniec.creditcard</groupId>
-    <artifactId>pp4</artifactId>
+    <artifactId>CreditCard</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,53 +13,22 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.25.1</version>
-            <scope>test</scope>
-        </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <version>3.2.4</version>
-        <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter</artifactId>
-        <version>3.2.4</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
-    <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.2.4</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>3.2.4</version>
+            <version>3.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.2.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>3.2.4</version>
+            <version>3.2.5</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -71,7 +40,13 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.13</version>
-            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>3.2.5</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -80,24 +55,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.25.3</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>3.2.4</version>
-            <scope>test</scope>
-        </dependency>
-
 
     </dependencies>
-
-
 
 
 </project>

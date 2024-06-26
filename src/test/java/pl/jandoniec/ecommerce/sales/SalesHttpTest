@@ -1,6 +1,7 @@
 package pl.jandoniec.ecommerce.sales;
-
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -9,11 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import pl.jandoniec.ecommerce.catalog.ProductCatalog;
 import pl.jandoniec.ecommerce.catalog.sales.reservation.AcceptOfferRequest;
-import pl.jandoniec.ecommerce.catalog.sales.order.ReservationDetails;
+import pl.jandoniec.ecommerce.catalog.sales.offering.Offer;
+import pl.jandoniec.ecommerce.catalog.sales.reservation.ReservationDetails;
 
 import java.math.BigDecimal;
 
-import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SalesHttpTest {
     @LocalServerPort
@@ -38,9 +39,9 @@ public class SalesHttpTest {
         var acceptOfferUrl = asBaseURL("api/accept-offer");
         var acceptOfferRequest = new AcceptOfferRequest();
         acceptOfferRequest
-                .setFirstName("Juan")
-                .setLastName("Grande")
-                .setEmail("jg@example.com");
+                .setFirstName("jan")
+                .setLastName("kowalski")
+                .setEmail("je@example.com");
 
         ResponseEntity<ReservationDetails> reservationResponse = http.postForEntity(
                 acceptOfferUrl, acceptOfferRequest, ReservationDetails.class);
@@ -67,7 +68,4 @@ public class SalesHttpTest {
 
         return id;
     }
-}
-
-
 }
